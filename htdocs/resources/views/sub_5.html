@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <script src="jQuery/jquery-3.6.0.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <script src="js/script.js"></script>
+    <style>
+        :root{
+            --width: 1924px;
+            --height: 1140px;
+            --center : calc(1924px / 4)
+        }
+
+        *{
+            -webkit-user-drag: none;
+            -webkit-user-select: none;}
+        .wrap{
+            transition: .4s;
+            top: 0;
+            z-index: 99;
+            overflow: hidden;
+            cursor: grab;
+            perspective: calc(var(--center));
+            background-color: #0b2e13;
+        }
+
+        .box{
+            opacity: 1;
+            width: 0;
+            height: 0;
+            transform-style: preserve-3d;
+            transform: translateZ(var(--center));
+        }
+        .since{
+            width: var(--width);
+            height: var(--height);
+            position: absolute;
+            margin-left: calc(var(--width)/ -2);
+            margin-top: calc(var(--height)/ -2);
+            backface-visibility: hidden;
+            object-fit: cover;
+        }
+
+        .since.front{transform: translateZ(calc(var(--width) / -2 + 1px))}
+        .since.back{transform: translateZ(calc(var(--width) / 2 - 1px)) rotateY(180deg)}
+        .since.left{transform: translateX(calc(var(--width) / -2 + 1px)) rotateY(90deg)}
+        .since.right{transform: translateX(calc(var(--width) / 2 - 1px)) rotateY(-90deg)}
+    </style>
+</head>
+<body>
+<div class="pano d-none position-fixed wrap w-100 justify-content-center align-items-center" style="height: 100vh">
+    <div class="box position-relative">
+        <div class="one since front"><img class="w-100 h-100" src="./파노라마/location0/tile000.png" alt=""></div>
+        <div class="one since back"><img class="w-100 h-100" src="./파노라마/location0/tile002.png" alt=""></div>
+        <div class="one since left"><img class="w-100 h-100" src="./파노라마/location0/tile003.png" alt=""></div>
+        <div class="one since right"><img class="w-100 h-100" src="./파노라마/location0/tile001.png" alt=""></div>
+
+        <div class="two d-none since front"><img class="w-100 h-100" src="./파노라마/location1/tile000.png" alt=""></div>
+        <div class="two d-none since back"><img class="w-100 h-100" src="./파노라마/location1/tile002.png" alt=""></div>
+        <div class="two d-none since left"><img class="w-100 h-100" src="./파노라마/location1/tile003.png" alt=""></div>
+        <div class="two d-none since right"><img class="w-100 h-100" src="./파노라마/location1/tile001.png" alt=""></div>
+
+    </div>
+    <button class="btn btn-success move" style="margin-top: 800px; z-index: 99;">이동하기</button>
+    <button class="btn btn-success _close" style="margin-top: 800px; z-index: 99;">닫기</button>
+</div>
+<section id="header" class="w-100">
+    <div class="nav container d-flex align-items-center justify-content-between">
+        <img src="./img/logo.png" alt="logo" title="logo" class="logo p-1">
+        <ul class="d-flex align-items-center h-100 justify-content-between w-25 m-0">
+            <li class="position-relative d-flex justify-content-center align-items-center">
+                <a href="#">홈</a>
+            </li>
+            <li class="position-relative d-flex justify-content-center align-items-center">
+                <a href="#">정원 안내</a>
+                <ul class="position-absolute d-flex justify-content-center align-items-center flex-column">
+                    <li>
+                        <a href="./sub_4.html">정원검색</a>
+                    </li>
+                    <li>
+                        <a href="./sub_5.html">전체정원목록</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="position-relative d-flex justify-content-center align-items-center">
+                <a href="#">정원 예약</a>
+                <ul class="position-absolute d-flex justify-content-center align-items-center flex-column">
+                    <li>
+                        <a href="#">예약 확인</a>
+                    </li>
+                    <li>
+                        <a href="#">예약 내역</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="position-relative d-flex justify-content-center align-items-center">
+                <a href="#">정원 소식지</a>
+            </li>
+        </ul>
+        <div class="btn-group">
+            <button class="btn btn-outline-success">로그인</button>
+            <button class="btn btn-outline-success">회원가입</button>
+        </div>
+    </div>
+</section>
+
+<section id="visual">
+    <div class="visual_1 visual container position-relative d-flex justify-content-between align-items-center">
+        <div class="text w-50">
+            <h4>Nature</h4>
+            <h1 class="main">WelCome to<br />
+                <b>Garden</b> In<br />
+                GyeongNam!
+            </h1>
+            <p>
+                정원도시 경상남도에서 추억을 남길 절호의 기회!
+                지친 일상과 고생한 당신에게 최고의 휴가를 만들어 드릴게요.
+                당신에게 딱 맞는 경상남도 정원은 무엇일까요?
+            </p>
+            <div class="btn-group">
+                <button class="btn btn-success"></button>
+                <button class="btn btn-outline-success"></button>
+                <button class="btn btn-outline-success"></button>
+            </div>
+        </div>
+        <img src="./img/visual.png" alt="visual" title="visual" class="main_img">
+        <div class="year_box position-absolute">
+            <img src="./img/Asset%2051.png" alt="img" title="img" class="year">
+            <img src="./img/move.png" alt="move" title="move" class="move">
+        </div>
+        <div class="animation position-absolute">
+            <div class="circle"></div>
+        </div>
+    </div>
+</section>
+
+<section class="sub_section" id="pano">
+    <div class="container">
+        <div class="d-flex w-100 justify-content-between">
+            <div class="w-50">
+                <h1 class="sub"><b>Garden</b> Guide</h1>
+                <p class="korea">전체 정원 목록 페이지</p>
+                <div class="position-relative point" style="width: 385px;height: 341px;">
+                    <img src="./map/map.png" alt="">
+                </div>
+            </div>
+            <div class="w-50">
+                <h2 class="sub">Garden Select</h2>
+                <select name="asd" id="select" class="custom-select w-50">
+                    <option value="" disabled selected>정원을 선택해주세요</option>
+                </select>
+                <div class="data p-3">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container d-flex justify-content-center align-items-center flex-column h-100">
+        <img src="./img/footer.png" alt="" class="mb-4">
+        <p>
+            Help
+            Call: (055) 126-0021
+            Email: help@gyeongnam.garden
+            Address: 경남 함양군 서성면 가르내길 202-1 (우 50002)
+        </p>
+        <p class="copyright">
+            Copyright
+            Copyright (c) 2021 ~ 2022 Gyeongnam Garden. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
+
+
