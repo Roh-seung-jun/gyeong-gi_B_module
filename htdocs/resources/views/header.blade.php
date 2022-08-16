@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('style.css')}}">
     <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
     <script src="{{asset('/jQuery/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{asset('bootstrap.js')}}"></script>
     <script>
         @if(session()->has('msg'))
             alert('{{session()->get('msg')}}');
@@ -47,7 +48,7 @@
                         <a href="#">예약 확인</a>
                     </li>
                     <li>
-                        <a href="#">예약 내역</a>
+                        <a href="{{route('history')}}">예약 내역</a>
                     </li>
                 </ul>
             </li>

@@ -43,9 +43,14 @@ Route::get('guide/{type?}','GardenController@guidePage')->name('guide');
 Route::get('garden/{id}','GardenController@viewPage')->name('garden');
 Route::get('calendar/{id}','GardenController@calendarPage')->name('calendar');
 Route::get('sign','UserController@signPage')->name('sign');
+Route::get('/history','GardenController@history')->name('history');
 Route::get('logout','UserController@logout')->name('logout');
+Route::get('cancel/{id}','GardenController@cancel')->name('cancel');
+Route::get('notice/{page?}','GardenController@noticePage')->name('notice');
 
+Route::post('review','ReviewController@review')->name('review');
 Route::post('login','UserController@login')->name('login');
 Route::post('check','GardenController@check')->name('check');
-Route::post('calendar','GardenController@calendar')->name('calendar');
+Route::post('setting','GardenController@setting')->name('setting');
+Route::post('calendar','GardenController@calendar')->name('makeCalendar');
 Route::post('sign','UserController@sign')->name('sign');

@@ -7,8 +7,12 @@
         $(()=>{
             $(document)
             .on('click','.test',check)
+            .on('change input','#start, #end,#people',reset)
         })
 
+        function reset(){
+            $('.submit').attr('type','button').addClass('disabled');
+        }
         function check(){
             let start = $('#start').val();
             let end = $('#end').val();
@@ -26,7 +30,9 @@
                 },
                 success:function(e){
                     if(isNaN(parseInt(e)))return alert(e);
-                    
+                    let price = parseInt(people) * parseInt(e) * 1000;
+                    $('#price').val(price);
+                    $('.submit').attr('type','submit').removeClass('disabled');
                 }
             })
         }
@@ -35,7 +41,7 @@
 
 @section('contents')
     <section id="list" class="sub_section">
-        <form action="{{route('calendar')}}" method="post" class="container">
+        <form action="{{route('makeCalendar',['garden_id'=>$data['garden']['id']])}}" method="post" class="container">
             @csrf
             <p>시작일</p>
             <input type="date" class="form-control" name="start_date" id="start">
@@ -45,7 +51,7 @@
             <input type="number" class="form-control" name="people" id="people">
             <button class="btn btn-outline-success test" type="button">신청여부 확인</button>
             <input type="text" disabled class="form-control" name="price" id="price">
-            <button class="btn btn-outline-success" disabled="">신청하기</button>
+            <button class="btn btn-outline-success submit" type="button">신청하기</button>
         </form>
     </section>
 @endsection

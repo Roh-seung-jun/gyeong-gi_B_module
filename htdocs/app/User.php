@@ -13,4 +13,16 @@ class User extends Authenticatable
     public $timestamps = false;
     protected $guarded = [];
     protected $keyType = 'string';
+
+
+    public function calendar(){
+        return $this->hasMany('App\Calendar')->where('start_date','>',date('Y-m-d'))->get();
+    }
+    public function history(){
+        return $this->hasMany('App\Calendar')->where('end_date','<',date('Y-m-d'))->get();
+    }
+
+    public function admin(){
+        return $this->hasOne('App\Garden');
+    }
 }
