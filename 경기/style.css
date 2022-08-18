@@ -1,0 +1,40 @@
+*{margin: 0;padding: 0;box-sizing: border-box}
+
+
+
+
+a{color: inherit;text-decoration: none!important;transition: .4s}
+a:hover{color: #2fad55}
+ul,li{list-style: none;margin: 0;}
+
+.main{font-size: 92px;font-family: 'Impact'}
+.tag{color: #2fad55}
+.sub{font-size: 72px;font-family: 'Impact'}
+.main b,.sub b{background-color: #2fad55;color: #fff}
+p{letter-spacing: -1px; color: #666}
+
+
+header{height: 80px;}
+header img{height: 80px;padding: 10px;}
+header .dep_2{top: 100%;height: 0;overflow: hidden;transition: .4s;background-color: #fff;border:0; width: 120px;left: 50%;transform: translateX(-50%)}
+header li:hover ul{height: 130px;border-bottom:2px solid #2fad55;}
+
+body,html{overflow-x: hidden}
+
+#visual{height: 100vh;width: 100vw;overflow-y:auto;overflow-x:hidden;scroll-snap-type: y mandatory }
+#visual .visual{height: 100vh; scroll-snap-align: start;scroll-snap-stop: always;}
+#visual .year_box{position: absolute;height: 600px;overflow: hidden;}
+#visual .move{animation: move 4s infinite;transform: rotate(20deg)}
+
+@keyframes move {
+    0%{margin-top: -1400px;}
+    80%{margin-top: 400px;opacity: 1}
+    81%{margin-top: 400px;opacity: 0}
+    99.999%{margin-top: -1400px;opacity: 0}
+    100%{opacity: 1;margin-top: -1400px;}
+}
+
+#visual .item_1 .year_box{left: 100%;}
+#visual .item_2 .year_box{right: 90%;}
+#visual .item_3 .year_box{position: absolute;height: 230px !important;overflow: hidden;top: 75%;}
+
